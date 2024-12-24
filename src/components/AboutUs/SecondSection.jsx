@@ -19,31 +19,27 @@ const SecondSection = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.3 } },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-  };
 
   return (
     <motion.div
       ref={ref}
-      className="bg-black w-[80%] mx-auto text-white py-10 lg:py-20 px-5 lg:px-20"
+      className=" w-[80%] mx-auto text-white py-10 lg:py-20 px-5 lg:px-20"
       initial="hidden"
       animate={controls}
       variants={containerVariants}
     >
       <motion.h1
         className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight"
-        variants={itemVariants}
+       
       >
         Découvrez Drone Cast et nos spectacles aériens
       </motion.h1>
 
       <motion.div
         className="flex flex-col lg:flex-row items-center gap-8 mb-10 lg:mb-20"
-        variants={itemVariants}
+        
       >
-        <motion.div className="w-full lg:w-1/2" whileHover={{ scale: 1.05 }}>
+        <motion.div className="w-full lg:w-1/2" >
           <img
             src="https://ao-technology.com/wp-content/uploads/2024/01/projects_szf-nye2324_01d.jpg"
             alt="Drone team at work"
@@ -52,7 +48,6 @@ const SecondSection = () => {
         </motion.div>
         <motion.div
           className="w-full lg:w-1/2 text-center lg:text-left"
-          variants={itemVariants}
         >
           <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">Présentation de Drone Cast</motion.h2>
           <p className="text-lg leading-relaxed">
@@ -63,9 +58,9 @@ const SecondSection = () => {
 
       <motion.div
         className="flex flex-col lg:flex-row-reverse items-center gap-8 mb-10 lg:mb-20"
-        variants={itemVariants}
+       
       >
-        <motion.div className="w-full lg:w-1/2" whileHover={{ scale: 1.05 }}>
+        <motion.div className="w-full lg:w-1/2" >
           <img
             src="https://www.allumee.com/wp-content/uploads/2024/01/allumee-drones-prets-a-decoller.webp"
             alt="Drones ready for launch"
@@ -74,7 +69,6 @@ const SecondSection = () => {
         </motion.div>
         <motion.div
           className="w-full lg:w-1/2 text-center lg:text-left"
-          variants={itemVariants}
         >
           <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">Spectacles Aériens de Drones au Maroc</motion.h2>
           <p className="text-lg leading-relaxed">
@@ -85,9 +79,9 @@ const SecondSection = () => {
 
       <motion.div
         className="flex flex-col lg:flex-row items-center gap-8 mb-10 lg:mb-20"
-        variants={itemVariants}
+        
       >
-        <motion.div className="w-full lg:w-1/2" whileHover={{ scale: 1.05 }}>
+        <motion.div className="w-full lg:w-1/2">
           <img
             src="https://ao-technology.com/wp-content/uploads/2024/01/projects_szf-nye2324_01d.jpg"
             alt="Team collaborating on a project"
@@ -96,7 +90,6 @@ const SecondSection = () => {
         </motion.div>
         <motion.div
           className="w-full lg:w-1/2 text-center lg:text-left"
-          variants={itemVariants}
         >
           <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">Technologie et Créativité au Service de Votre Événement</motion.h2>
           <p className="text-lg leading-relaxed">
@@ -107,9 +100,9 @@ const SecondSection = () => {
 
       <motion.div
         className="flex flex-col lg:flex-row-reverse items-center gap-8 mb-10 lg:mb-20"
-        variants={itemVariants}
+
       >
-        <motion.div className="w-full lg:w-1/2" whileHover={{ scale: 1.05 }}>
+        <motion.div className="w-full lg:w-1/2" >
           <img
             src="https://www.allumee.com/wp-content/uploads/2024/01/allumee-drones-prets-a-decoller.webp"
             alt="Drones preparing for a show"
@@ -118,7 +111,6 @@ const SecondSection = () => {
         </motion.div>
         <motion.div
           className="w-full lg:w-1/2 text-center lg:text-left"
-          variants={itemVariants}
         >
           <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">Collaboration avec des Artistes et Compositeurs</motion.h2>
           <p className="text-lg leading-relaxed">

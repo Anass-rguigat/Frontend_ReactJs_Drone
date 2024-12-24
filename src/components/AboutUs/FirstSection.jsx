@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 
 function FirstSection() {
   const images = [
-    "https://ao-technology.com/wp-content/uploads/2024/01/projects_szf-nye2324_01d.jpg",
     "https://www.allumee.com/wp-content/uploads/2024/01/allumee-drones-prets-a-decoller.webp",
-    "https://agroinsight.com.br/wp-content/uploads/2021/10/regulamentacao-do-uso-agricola-de-drones.jpg",
     "https://proteklabofrance.com/wp-content/uploads/2021/03/inspection-tructure-drone.jpg",
     "https://www.pacecat.net/wp-content/uploads/2024/06/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240604160133-800x450.webp",
   ];
@@ -26,7 +24,7 @@ function FirstSection() {
 
   return (
     <motion.div
-      className="bg-black text-gray-50 p-6 lg:p-16 w-full max-w-screen-xl mx-auto"
+      className=" text-white p-6 lg:p-16 w-full max-w-screen-xl mx-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -37,7 +35,7 @@ function FirstSection() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <p className="uppercase text-xs font-bold text-royalBlue mb-3">À Propos</p>
+        <p className="uppercase text-xs font-bold text-redOne mb-3">À Propos</p>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold">
         QUI SOMMES-NOUS ?
         </h1>
@@ -82,14 +80,14 @@ function FirstSection() {
 
             <motion.button
               onClick={handlePrev}
-              className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-gray-200 bg-opacity-50 text-gray-800 p-4 rounded-full shadow-lg hover:bg-gray-200 hover:bg-opacity-50"
+              className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-gray-500 bg-opacity-50 text-gray-800 p-4 rounded-full shadow-lg hover:bg-gray-200 hover:bg-opacity-50"
               
             >
               &#8249;
             </motion.button>
             <motion.button
               onClick={handleNext}
-              className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-gray-200 bg-opacity-50 text-gray-800 p-4 rounded-full shadow-lg hover:bg-gray-200 hover:bg-opacity-50"
+              className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-gray-500 bg-opacity-50 text-gray-800 p-4 rounded-full shadow-lg hover:bg-gray-200 hover:bg-opacity-50"
               
             >
               &#8250;

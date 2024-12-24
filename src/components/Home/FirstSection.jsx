@@ -54,15 +54,15 @@ const ParticleSphere = () => {
   const [showText, setShowText] = useState(false);
 
   return (
-    <div className="relative flex justify-center items-center w-full h-screen bg-black">
-      {/* Right Side: Canvas */}
+    <div className="bg-black relative flex justify-center items-center w-full h-screen ">
+      {/* Canvas */}
       <div style={{ width: "100%", height: "100%" }}>
         <Canvas
           shadows
           camera={{ position: [0, 0, 75] }} 
-          style={{ height: "100%" }}
+          style={{ height: "100%" , touchAction: "none" }}
         >
-          <OrbitControls enableZoom={false} />
+          <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} makeDefault/>
           <ambientLight intensity={0.4} />
           <directionalLight
             position={[10, 10, 10]}
@@ -89,50 +89,56 @@ const ParticleSphere = () => {
         </Canvas>
       </div>
 
+      {/* Gradient Background at the Bottom */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-1/3"
+        style={{
+          background: 'linear-gradient(to top, #000000, rgba(0, 0, 0, 0))', // Gradient from black to transparent
+        }}
+      ></div>
+
       {/* Title, Description, and Button (will show after animation) */}
       {showText && (
-        <div className="absolute text-white text-center">
+        <div className="absolute text-center">
           <h1
-          className="mb-4 text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold"
-          style={{
-            fontFamily: "Cabinet Grotesk, sans-serif",
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", 
-          }}
-        >
-          L'Art et la Créativité par Drone
-        </h1>
-        <p
-          className="mb-6 text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
-          style={{
-            fontFamily: "Sentient, serif",
-            textShadow: "1px 1px 3px rgba(0, 0, 0, 0.4)",
-          }}
-        >
-          Des performances de drones spectaculaires aux services pratiques, pour répondre à vos besoins industriels, agricoles, et créatifs.
-        </p>
-
-            <button style={{ backgroundColor: "#48bdd2" }} className="relative px-6 py-3 text-white  rounded-full group focus:outline-none focus:ring-4 transition-all ml-5">
+            className="mb-4 text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl  text-gray-50 font-bold"
+            style={{
+              fontFamily: "Cabinet Grotesk, sans-serif",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", 
+            }}
+          >
+            EXPÉRIENCE AÉRIENNE
+          </h1>
+          <p
+            className="mb-6 text-center text-sm sm:text-base md:text-lg text-gray-50 lg:text-xl xl:text-2xl"
+            style={{
+              fontFamily: "Roboto, sans-serif",
+              textShadow: "1px 1px 3px rgba(0, 0, 0, 0.4)",
+            }}
+          >
+            Des performances de drones spectaculaires aux services pratiques, pour répondre à vos besoins industriels, agricoles, et créatifs.
+          </p>
+          <button  className="bg-redOne relative px-6 py-3 rounded-full group focus:outline-none focus:ring-4 transition-all ml-5">
             <span className="text-white pr-5"><Link to="/contact">Contact-nous</Link></span>
-            {/* Arrow */}
             <span
-                className="absolute inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-x-2 "
+              className="absolute text-white inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-x-2 "
             >
-                <svg
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                className="w-5 h-5 text-white "
-                >
+                className="w-5 h-5  "
+              >
                 <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
                 />
-                </svg>
+              </svg>
             </span>
-            </button>
+          </button>
         </div>
       )}
     </div>
@@ -155,25 +161,23 @@ const TransitionController = ({ points, radius, numPoints, phase, setPhase, setS
 
     if (phase === 0) {
       if (droneRef.current.scale.x > 0.05) {
-        droneRef.current.scale.x -= 0.1;  
-        droneRef.current.scale.y -= 0.1;
-        droneRef.current.scale.z -= 0.1;
+        droneRef.current.scale.x -= 0.2;  
+        droneRef.current.scale.y -= 0.2;
+        droneRef.current.scale.z -= 0.2;
       } else {
         setPhase(0.5); 
       }
     }
 
     if (phase === 0.5) {
-      if (t > 3) {
+      if (t > 1) {
         setPhase(1); 
       }
     }
 
-
     if (phase === 1) {
         setPhase(2); 
     }
-
 
     if (phase === 2) {
       particlesRef.current.children.forEach((particle, idx) => {
@@ -181,7 +185,6 @@ const TransitionController = ({ points, radius, numPoints, phase, setPhase, setS
       });
       setShowText(true);
     }
-    
   });
 
   return (
@@ -221,11 +224,18 @@ const GlowingParticle = ({ position, color }) => {
   );
 };
 
-
 const getHorizontalGradientColor = (x, radius) => {
-  const normalizedX = (x + radius) / (2 * radius);
+  const normalizedX = (x + radius) / (2 * radius); // Normalize x to a range of 0 to 1
+
+  const targetColor = new THREE.Color();
+  targetColor.setHSL(0.6 - normalizedX * 0.2, 1.0, 0.3); // Target HSL color (e.g., blue-green gradient)
+
+  const black = new THREE.Color(0x000000); // Define black color
+
+  // Interpolate between black and the target color
   const color = new THREE.Color();
-  color.setHSL(0.6 - normalizedX * 0.2, 1.0, 0.3); 
+  color.lerpColors(black, targetColor, normalizedX); // Blend based on normalizedX
+
   return color;
 };
 

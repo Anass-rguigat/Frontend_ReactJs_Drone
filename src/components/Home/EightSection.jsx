@@ -67,35 +67,21 @@ const logos = [
   },
 ];
 
-const ScrollInfinit = ({ direction = "left", title, phrase }) => {
-  const animationClass =
-    direction === "left"
-      ? "animate-slide-left-infinite"
-      : "animate-slide-right-infinite";
-
+const ScrollInfinit = ({ title, phrase }) => {
+  const animationClass = "animate-slide-left-infinite";
   return (
-    <section className="bg-black text-white pt-8 pb-4">
+    <section className="bg-gray-100 text-black pt-8 pb-4">
       <h2 className="text-center text-2xl mb-2 font-bold leading-8">{title}</h2>
       <p className="text-center text-lg font-extralight leading-8">{phrase}</p>
 
       <div className="logos group relative overflow-hidden whitespace-nowrap py-10 [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)]">
         <div className={`inline-flex w-max ${animationClass} group-hover:animation-pause`}>
           {logos.map((logo, index) => (
-            <img
-              key={index}
-              className="mx-4 h-16"
-              src={logo.src}
-              alt={logo.alt}
-            />
+            <img key={index} className="mx-4 h-16" src={logo.src} alt={logo.alt} />
           ))}
           {/* Duplicate for seamless infinite scrolling */}
           {logos.map((logo, index) => (
-            <img
-              key={`duplicate-${index}`}
-              className="mx-4 h-16"
-              src={logo.src}
-              alt={logo.alt}
-            />
+            <img key={`duplicate-${index}`} className="mx-4 h-16" src={logo.src} alt={logo.alt} />
           ))}
         </div>
       </div>

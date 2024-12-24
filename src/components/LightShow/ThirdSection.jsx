@@ -22,10 +22,10 @@ const ThirdSection = () => {
                         </div>
                     </div>
                     <div className="md:flex-1 mt-10 px-4">
-                        <h2 className="text-4xl font-bold dark:text-white mb-2">
+                        <h2 className="text-4xl font-bold dark:text-white mb-8">
                             PRÉSENTATION DU DRONE IO STAR
                         </h2>
-                        <p className="text-2xl font-bold dark:text-royalBlue mb-2">
+                        <p className="text-2xl font-bold dark:text-redOne mb-8">
                             Les caractéristiques
                         </p>
                         <div className="flex mb-4">

@@ -61,7 +61,7 @@ const FirstSection = () => {
   return (
     <>
       <motion.section
-      className="bg-black text-gray-50 p-6 lg:p-16 w-full "
+      className="bg-white text-black p-6 lg:p-16 w-full "
       initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}>
@@ -73,7 +73,7 @@ const FirstSection = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <p className="uppercase text-xl font-bold text-royalBlue mb-3"
+        <p className="uppercase text-xl font-bold text-redOne mb-3"
         
         >
           Nos Realisations</p>
@@ -91,7 +91,7 @@ const FirstSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full w-full"
               >
               {/*Card */}
-              <motion.div className="col-span-2 sm:col-span-1 md:col-span-2 bg-black h-auto md:h-full flex flex-col"
+              <motion.div className="col-span-2 sm:col-span-1 md:col-span-2 h-auto md:h-full flex flex-col"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -132,8 +132,7 @@ const FirstSection = () => {
               </motion.div>
 
               {/* Card*/}
-              <motion.div className="col-span-2 sm:col-span-1 md:col-span-2 bg-black"
-                whileHover={{ scale: 1.05 }}
+              <motion.div className="col-span-2 sm:col-span-1 md:col-span-2 "
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -147,7 +146,7 @@ const FirstSection = () => {
                   <img
                     src={`https://img.youtube.com/vi/${videos[1].id}/0.jpg`}
                     alt="Gin"
-                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                    className="absolute inset-0 h-full w-full object-cover  transition-transform duration-500 ease-in-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
                   <h3 className="z-10 text-1xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-1xl">
@@ -172,7 +171,7 @@ const FirstSection = () => {
                   </div>
                 </a>
               <motion.div className="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2"
-                whileHover={{ scale: 1.05 }}
+                
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -187,7 +186,7 @@ const FirstSection = () => {
                   <img
                     src={`https://img.youtube.com/vi/${videos[2].id}/0.jpg`}
                     alt="Whiskey"
-                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
                   <h3 className="z-10 text-1xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-1xl">
@@ -249,8 +248,7 @@ const FirstSection = () => {
               </motion.div>
 
             {/* Section */}
-            <motion.div className="col-span-2 sm:col-span-1 md:col-span-1 bg-black h-auto md:h-full flex flex-col"
-            whileHover={{ scale: 1.05 }}
+            <motion.div className="col-span-2 sm:col-span-1 md:col-span-1  h-auto md:h-full flex flex-col"
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -296,8 +294,7 @@ const FirstSection = () => {
   {videos.slice(5, visibleVideos).map((video, index) => (
     <motion.div
       key={index}
-      className="bg-black h-auto flex flex-col relative"
-      whileHover={{ scale: 1.05 }}
+      className=" h-auto flex flex-col relative"
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -349,8 +346,7 @@ const FirstSection = () => {
             
             <button
             onClick={handleShowMore}
-            style={{ backgroundColor: "#48bdd2" }}
-            className="relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
+            className="bg-redOne relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
           >
             <span className="text-white pr-5">Plus Info</span>
             <span className="absolute inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-y-2">

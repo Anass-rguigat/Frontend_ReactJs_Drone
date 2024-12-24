@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SecondSection = () => {
   return (
     <motion.section
-      className="bg-black text-white py-12 px-4"
+      className="bg-secondWhite text-black py-2 px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -20,15 +20,14 @@ const SecondSection = () => {
         viewport={{ once: true }}
       >
         <p
-          style={{ color: "#48bdd2" }}
-          className="uppercase text-sm font-bold mb-4"
+          className="text-redOne uppercase text-xl font-bold mb-4"
         >
           Inspection Thermique par Drone
         </p>
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-white leading-tight">
+        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-black leading-tight">
           Processus d'Inspection Thermographique
         </h1>
-        <p className="text-gray-300 max-w-3xl">
+        <p className="text-gray-600 max-w-3xl">
           Nos drones utilisent la thermographie infrarouge pour détecter les différences de température et identifier des anomalies dans diverses structures. Ce processus permet une analyse rapide et précise, tout en évitant les méthodes traditionnelles plus coûteuses et lentes.
         </p>
       </motion.div>
@@ -39,7 +38,7 @@ const SecondSection = () => {
           key={index}
           className={`flex flex-col ${
             index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-          } items-center gap-8 bg-neutral-900/50 shadow p-8 rounded-2xl mb-12 max-w-6xl mx-auto border-neutral-800`}
+          } items-center gap-8 bg-white shadow p-8 rounded-2xl mb-12 max-w-6xl mx-auto border-neutral-800`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.2 }}
@@ -54,7 +53,7 @@ const SecondSection = () => {
                 ? "Détection des Ponts Thermiques"
                 : "Suivi Thermographique de Chantier"}
             </h4>
-            <p className="text-gray-300 text-lg leading-relaxed mb-4">
+            <p className="text-gray-600 text-lg leading-relaxed mb-4">
               {index === 0
                 ? "Grâce à la thermographie, nous pouvons détecter les défaillances ou dysfonctionnements des panneaux photovoltaïques, optimisant ainsi la gestion de votre installation."
                 : index === 1
@@ -62,8 +61,7 @@ const SecondSection = () => {
                 : "La thermographie permet de suivre l’évolution des projets de construction et d'identifier d’éventuelles anomalies pendant les phases de chantier."}
             </p>
             <button
-              style={{ backgroundColor: "#48bdd2" }}
-              className="relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
+              className="bg-redOne relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
             >
               <span className="text-white pr-5"><Link to="/contact">Contact-nous</Link></span>
               <span className="absolute inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-x-2">

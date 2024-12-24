@@ -10,17 +10,19 @@ const Accordion = ({ title, children }) => {
 
   return (
     <motion.div
-      className={`w-full max-w-3xl bg-neutral-900/60 rounded-md border mb-4 overflow-hidden ${
-        isOpen ? "border-blue-700/40" : "border-neutral-800"
+      className={`w-full max-w-3xl  bg-gray-100 rounded-md border mb-4 overflow-hidden ${
+        isOpen ? "border-blue-400/40" : ""
       }`}
+
+      style={{backgroundColor:"gba(228,229,230,1)"}}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       viewport={{ once: true }}
     >
       <button
-        className={`flex items-center justify-between text-neutral-200 w-full p-4 text-left ${
-          isOpen ? "bg-neutral-800/40" : ""
+        className={`flex items-center justify-between text-black w-full p-4 text-left ${
+          isOpen ? "bg-neutral-200" : ""
         }`}
         onClick={toggleAccordion}
       >
@@ -32,7 +34,7 @@ const Accordion = ({ title, children }) => {
         >
           <LuPlus
             className={`w-6 h-6 ${
-              isOpen ? "text-red-500" : "text-neutral-100"
+              isOpen ? "text-red-500" : "text-black"
             }`}
           />
         </motion.span>
@@ -57,7 +59,7 @@ const Accordion = ({ title, children }) => {
 const Faq = () => {
   return (
     <motion.div
-      className="w-full flex-1 flex items-center justify-center flex-col pb-10"
+      className="bg-white w-full flex-1 flex items-center justify-center flex-col pb-10"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -72,12 +74,11 @@ const Faq = () => {
         viewport={{ once: true }}
       >
         <p
-          style={{ color: "#48bdd2" }}
-          className="uppercase text-sm font-bold mb-4"
+          className="text-redOne uppercase text-xl mt-10 font-bold mb-4"
         >
           FAQ
         </p>
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl text-gray-50 font-extrabold mb-6 leading-tight">
+        <h1 className="text-2xl sm:text-4xl lg:text-5xl text-black font-extrabold mb-6 leading-tight">
           Foire aux questions
         </h1>
       </motion.div>
@@ -89,7 +90,7 @@ const Faq = () => {
         viewport={{ once: true }}
       >
         <Accordion title={"Comment réserver un spectacle de drones lumineux ?"}>
-          <p className="text-base text-neutral-400 font-light">
+          <p className="text-base text-black font-light">
             Vous pouvez réserver un spectacle de drones lumineux en nous
             contactant directement via notre site web ou par téléphone. Nous
             nous assurerons de planifier et personnaliser l'événement selon vos
@@ -101,7 +102,7 @@ const Faq = () => {
             "Quelle est la différence entre un spectacle de drones et un feu d’artifice ?"
           }
         >
-          <p className="text-base text-neutral-400 font-light">
+          <p className="text-base text-black font-light">
             Contrairement aux feux d'artifice, les spectacles de drones sont
             silencieux, écologiques et peuvent être personnalisés pour afficher
             des logos, des animations et des messages uniques.
@@ -112,7 +113,7 @@ const Faq = () => {
             "Les spectacles de drones sont-ils adaptés à tous les lieux et tous les publics ?"
           }
         >
-          <p className="text-base text-neutral-400 font-light">
+          <p className="text-base text-neutral-black font-light">
             Oui, nos spectacles de drones sont adaptés à divers environnements
             et publics, tant qu’il y a un espace dégagé et des conditions
             météorologiques favorables.
@@ -123,13 +124,13 @@ const Faq = () => {
             "Combien de temps à l’avance faut-il réserver un spectacle de drones ?"
           }
         >
-          <p className="text-base text-neutral-400 font-light">
+          <p className="text-base text-black font-light">
             Nous recommandons de réserver au moins 2 à 4 semaines à l’avance
             afin de préparer et planifier votre spectacle personnalisé.
           </p>
         </Accordion>
         <Accordion title={"Quelles sont les conditions météorologiques requises ?"}>
-          <p className="text-base text-neutral-400 font-light">
+          <p className="text-base text-black font-light">
             Les conditions idéales incluent un ciel clair, sans pluie ni vents
             forts. Nous surveillons toujours la météo pour garantir un spectacle
             en toute sécurité.

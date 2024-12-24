@@ -63,12 +63,13 @@ const OurService = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center w-full">
+    <div className="bg-secondWhite min-h-screen flex flex-col items-center w-full">
       <div className="mt-16 lg:mt-24 lg:ml-12 w-[80%] mb-16">
-        <p style={{ color: "#48bdd2" }} className="uppercase text-sm font-bold mb-4">
+        
+        <p className="text-redOne uppercase text-xl font-bold mb-4">
           Service
         </p>
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-white leading-tight">
+        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-black leading-tight">
           Services sur Mesure pour Réaliser Vos Ambitions
         </h1>
       </div>
@@ -104,8 +105,7 @@ const OurService = () => {
                 </p>
                 <Link
                   to={item.link}
-                  style={{ backgroundColor: "#48bdd2" }}
-                  className="relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
+                  className="bg-redOne relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
                 >
                   <span className="text-white pr-2">Plus Info</span>
                   <span className="absolute inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-x-2">

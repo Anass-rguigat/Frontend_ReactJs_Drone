@@ -2,7 +2,7 @@ import React from "react";
 
 const UseIt = () => {
   return (
-    <section className="bg-black text-white p-10">
+    <section className=" text-white p-10">
       <div className="mt-16 ml-8 sm:ml-16 md:ml-[40px] lg:ml-[100px] xl:ml-[150px] w-[80%] mb-16">
         <p style={{ color: "#48bdd2" }} className="uppercase text-sm font-bold mb-4">
           DRONE LIGHT SHOW
