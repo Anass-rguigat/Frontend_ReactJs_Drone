@@ -18,25 +18,26 @@ const WhyUs = () => {
   return (
     <motion.div
       ref={ref}
-      className="flex justify-center py-16 px-8 w-full bg-cover bg-center relative"
+      className="bg-white flex justify-center py-16 px-8 w-full bg-cover bg-center relative"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
       {/* Content Wrapper */}
+    
       <motion.div
-        className="w-[80%] relative z-10 text-white rounded-lg"
+        className="w-[80%] relative z-10 text-black rounded-lg"
         variants={itemVariants}
       >
         {/* Title Section with Overlay */}
         <motion.div
-          className="bg-black bg-opacity-50 px-5 py-6 rounded-lg mb-10"
+          className=" bg-opacity-50 px-5 py-6 rounded-lg mb-10"
           variants={itemVariants}
         >
-          <p style={{ color: "#48bdd2" }} className="uppercase text-sm font-bold mb-4">
+          <p className="uppercase  text-redOne text-xl font-bold mb-4">
             Pourquoi
           </p>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+          <h1 className="text-2xl text-black sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
             Pourquoi devriez-vous travailler avec nous ?
           </h1>
         </motion.div>
@@ -70,7 +71,7 @@ const WhyUs = () => {
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="text-left bg-black bg-opacity-50 p-4 rounded-lg"
+              className="text-left text-black p-4 rounded-lg"
               variants={itemVariants}
             >
               <h3 className="font-bold text-lg">{item.title}</h3>

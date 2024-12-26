@@ -1,270 +1,85 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import axios from "axios";
-import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
+import React from "react";
 
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
-const lineAnimationVariants = {
-  hidden: { opacity: 0, pathLength: 0 },
-  visible: {
-    opacity: 1,
-    pathLength: 1,
-    transition: {
-      duration: 2,
-      ease: "easeInOut",
-      repeat: Infinity,
-      repeatType: "reverse",
-    },
-  },
-};
-
-const FirstSection = () => {
-  const [email, setEmail] = useState("");
-  const [nomComplet, setNomComplet] = useState("");
-  const [telephone, setTelephone] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [responseMessage, setResponseMessage] = useState("");
-
-  const sendMail = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const response = await axios.get("http://localhost:5000/", {
-        params: {
-          email,
-          nomComplet,
-          telephone,
-          message,
-        },
-      });
-      setResponseMessage("Message envoyé avec succès!");
-    } catch (error) {
-      setResponseMessage("Une erreur s'est produite. Veuillez réessayer.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+const ContactSection = () => {
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      className="min-h-screen bg-black text-white flex flex-col justify-center items-center p-4"
-    >
-      <motion.div
-        className="grid md:grid-cols-2 gap-8 w-full max-w-5xl"
-        variants={fadeInVariants}
-      >
-        <motion.div className="space-y-6">
-          <motion.h1
-            className="text-3xl md:text-5xl font-bold text-teal-400"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", duration: 1 }}
-          >
-            CONTACTEZ-NOUS
-          </motion.h1>
-          <motion.p
-            className="text-gray-400"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Nous sommes à votre écoute pour toute question ou demande concernant nos services. Que ce soit pour organiser un spectacle de drones, obtenir des informations sur nos prestations ou discuter d'un projet personnalisé, nous serons ravis de vous répondre.
-          </motion.p>
-
-          <motion.div className="space-y-4">
-            <motion.div
-              className="flex items-center space-x-4 transition duration-300 hover:scale-105"
-              whileHover={{ scale: 1.1 }}
-            >
-              <span className="text-teal-400 text-2xl">📍</span>
-              <div>
-                <p className="font-bold text-teal-400">Adresse</p>
-                <p>Rue Ardanne, Imm 14, Appt 8, Mahaj Ryad - 10000 Rabat, Maroc</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="flex items-center space-x-4 transition duration-300 hover:scale-105"
-              whileHover={{ scale: 1.1 }}
-            >
-              <span className="text-teal-400 text-2xl">📞</span>
-              <div>
-                <p className="font-bold text-teal-400">Téléphone</p>
-                <p>+212 537 713 659</p>
-              </div>
-            </motion.div>
-            <motion.div
-              className="flex items-center space-x-4 transition duration-300 hover:scale-105"
-              whileHover={{ scale: 1.1 }}
-            >
-              <span className="text-teal-400 text-2xl">✉️</span>
-              <div>
-                <p className="font-bold text-teal-400">Email</p>
-                <p>contact@dronecast.io</p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div className="flex space-x-4 mt-4 text-teal-400">
-            <motion.a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white text-2xl transition duration-300 transform hover:scale-125"
-              whileHover={{ rotate: 360 }}
-            >
-              <FaFacebookF />
-            </motion.a>
-            <motion.a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white text-2xl transition duration-300 transform hover:scale-125"
-              whileHover={{ rotate: 360 }}
-            >
-              <FaInstagram />
-            </motion.a>
-            <motion.a
-              href="https://tiktok.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white text-2xl transition duration-300 transform hover:scale-125"
-              whileHover={{ rotate: 360 }}
-            >
-              <FaTiktok />
-            </motion.a>
-          </motion.div>
-        </motion.div>
-        <motion.div
-          className="relative bg-gray-800 p-6 rounded-lg shadow-lg"
-          initial={{ x: 200 }}
-          animate={{ x: 0 }}
-          transition={{ type: "spring", stiffness: 50 }}
-        >
-          <motion.svg
-            className="absolute top-0 left-0 w-full h-full"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.line
-              x1="0"
-              y1="0"
-              x2="100%"
-              y2="0"
-              stroke="#14b8a6"
-              strokeWidth="2"
-              variants={lineAnimationVariants}
-              initial="hidden"
-              animate="visible"
-            />
-            <motion.line
-              x1="100%"
-              y1="0"
-              x2="100%"
-              y2="100%"
-              stroke="#14b8a6"
-              strokeWidth="2"
-              variants={lineAnimationVariants}
-              initial="hidden"
-              animate="visible"
-            />
-            <motion.line
-              x1="100%"
-              y1="100%"
-              x2="0"
-              y2="100%"
-              stroke="#14b8a6"
-              strokeWidth="2"
-              variants={lineAnimationVariants}
-              initial="hidden"
-              animate="visible"
-            />
-            <motion.line
-              x1="0"
-              y1="100%"
-              x2="0"
-              y2="0"
-              stroke="#14b8a6"
-              strokeWidth="2"
-              variants={lineAnimationVariants}
-              initial="hidden"
-              animate="visible"
-            />
-          </motion.svg>
-
-          <h2 className="text-2xl font-bold mb-4 relative z-10">ENVOYER UN MESSAGE</h2>
-          <motion.form
-            onSubmit={sendMail}
-            className="space-y-4 relative z-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.div whileHover={{ scale: 1.05 }}>
-              <label className="block text-sm font-bold">Nom Complet</label>
-              <input
-                onChange={(e) => setNomComplet(e.target.value)}
-                type="text"
-                value={nomComplet}
-                className="w-full mt-1 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-teal-400"
-              />
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }}>
-              <label className="block text-sm font-bold">Email</label>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                value={email}
-                className="w-full mt-1 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-teal-400"
-              />
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }}>
-              <label className="block text-sm font-bold">Numéro de téléphone</label>
-              <input
-                onChange={(e) => setTelephone(e.target.value)}
-                type="tel"
-                value={telephone}
-                className="w-full mt-1 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-teal-400"
-              />
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }}>
-              <label className="block text-sm font-bold">Écrivez votre message...</label>
-              <textarea
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
-                rows="4"
-                className="w-full mt-1 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-teal-400"
-              ></textarea>
-            </motion.div>
-
-            <motion.button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-teal-400 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded transition duration-300 transform hover:scale-105"
-              whileHover={{ scale: 1.1 }}
-            >
-              {loading ? "Envoi en cours..." : "Envoyer"}
-            </motion.button>
-          </motion.form>
-
-          {responseMessage && (
-            <div className="mt-4 text-center text-teal-400">
-              {responseMessage}
+    <section className="bg-white w-full  text-gray-600 body-font relative flex items-center justify-center">
+      <div className="container px-5 py-24 mx-auto flex flex-col lg:flex-row">
+        {/* Map Section */}
+        <div className="lg:w-2/3 md:w-full rounded-lg overflow-hidden sm:mr-10 p-6 flex items-end justify-start relative">
+          <iframe
+            width="100%"
+            height="100%"
+            className="absolute inset-0"
+            frameBorder="0"
+            title="map"
+            marginHeight="0"
+            marginWidth="0"
+            scrolling="no"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.369241739508!2d-6.868405673660905!3d33.95734777273387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda713a5d2f007b3%3A0xd958042b90a96062!2sDrone%20Cast%20Company%20-%20N%C2%B01%20au%20Maroc%20Drone%20Show%20Light!5e0!3m2!1sfr!2sma!4v1735076452959!5m2!1sfr!2sma"
+            style={{ filter: " opacity(1)" }}
+          ></iframe>
+          <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+            <div className="lg:w-1/2 px-6">
+              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">ADRESSE</h2>
+              <p className="mt-1">Rue Ardanne, Imm 14, Appt 8, Mahaj Ryad - 10000 Rabat, Maroc</p>
             </div>
-          )}
-        </motion.div>
-      </motion.div>
-    </motion.div>
+            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
+              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+              <a className="text-redOne leading-relaxed">contact@dronecast.io</a>
+              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">TÉLÉPHONE</h2>
+              <p className="leading-relaxed">+212 537 713 659</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Feedback Form */}
+        <div className="lg:w-1/3 md:w-full bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+          <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">CONTACTEZ-NOUS</h2>
+          <p className="leading-relaxed mb-5 text-gray-600">
+            Nous sommes à votre écoute pour toute question ou demande concernant nos services. Que ce soit pour organiser un spectacle de drones, obtenir des informations sur nos prestations ou discuter d'un projet personnalisé, nous serons ravis de vous répondre.
+          </p>
+          <div className="relative mb-4">
+            <label htmlFor="name" className="leading-7 text-sm text-gray-600">Nom Complet</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div className="relative mb-4">
+            <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div className="relative mb-4">
+            <label htmlFor="telephone" className="leading-7 text-sm text-gray-600">Numéro de téléphone</label>
+            <input
+              type="number"
+              id="telephone"
+              name="telephone"
+              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div className="relative mb-4">
+            <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+            ></textarea>
+          </div>
+          <button className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
+            Submit
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default FirstSection;
+export default ContactSection;

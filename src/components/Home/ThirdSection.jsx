@@ -23,13 +23,15 @@ const AboutUs = () => {
   };
 
   return (
+    
     <motion.div
       ref={ref}
-      className="bg-black text-white px-6 sm:px-12 lg:px-20 py-12 pt-20"
+      className="bg-white text-black px-6 sm:px-12 lg:px-20 py-12 pt-20"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
+      
       <motion.div className="flex flex-col lg:flex-row items-center lg:items-start" variants={itemVariants}>
         {/* Left Section: Video Thumbnail */}
         <motion.div
@@ -37,6 +39,7 @@ const AboutUs = () => {
           onClick={openModal}
           whileHover={{ scale: 1.05 }}
         >
+          
           <img
             src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
             alt="Drone Show"
@@ -63,25 +66,24 @@ const AboutUs = () => {
 
         {/* Right Section: Description */}
         <motion.div className="mt-8 lg:mt-0 lg:ml-12 lg:w-1/2" variants={itemVariants}>
-          <p style={{ color: "#48bdd2" }} className="uppercase text-sm font-bold mb-4">
+          <p  className="text-redOne uppercase text-xl font-bold mb-4">
             À Propos
           </p>
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
           Découvrez Notre Univers
           </h1>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-900 mb-6">
           Nous vous offrons un spectacle de drones lumineux clé en main, alliant créativité artistique et expertise opérationnelle, pour des événements uniques et mémorables.
           </p>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-900 mb-6">
           Notre équipe d’artistes talentueux, soutenue par une technologie de pointe, personnalise chaque show selon vos besoins.
           </p>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-900 mb-20">
           De la conception à la réalisation, nous garantissons un accompagnement complet, tout en adoptant une démarche éco-responsable pour des performances impressionnantes et respectueuses de l’environnement.
           </p>
           <Link
           to="/Aboutus"
-            style={{ backgroundColor: "#48bdd2" }}
-            className="relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
+            className="relative px-6 py-3  bg-redOne text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
           >
             <span className="text-white pr-5">Plus Info</span>
             <span className="absolute inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-x-2">

@@ -117,7 +117,7 @@ const OverlayCopy = ({ heading }) => {
 };
 
 const Content = ({ title, subtitle, description}) => (
-  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12 flex items-center justify-center">
+  <div className=" mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12 flex items-center justify-center">
     <motion.h2
       className="col-span-1 text-3xl font-bold md:col-span-4 text-gray-50 text-center"
       initial={{ opacity: 0 }}

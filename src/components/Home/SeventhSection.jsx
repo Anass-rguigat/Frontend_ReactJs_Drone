@@ -19,15 +19,15 @@ const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-black">
+    <section ref={targetRef} className="relative h-[300vh] bg-black ">
       <motion.div
-        className="absolute top-0 left-0 right-0 flex flex-col justify-center items-center text-center pt-16 bg-black z-10"
+        className=" absolute top-0 left-0 right-0 flex flex-col justify-center items-center text-center pt-16  z-10"
         style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }} 
       >
-        <p className="uppercase text-sm font-bold mb-4" style={{ color: "#48bdd2" }}>
+        <p className="text-white uppercase text-xl font-bold mb-4" >
           réalisations
         </p>
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-white leading-tight">
+        <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6  leading-tight">
           NOS DERNIERS PROJETS
         </h1>
       </motion.div>

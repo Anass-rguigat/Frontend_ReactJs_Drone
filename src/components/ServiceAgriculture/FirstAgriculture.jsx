@@ -16,7 +16,7 @@ const FirstAgriculture = () => {
 
   return (
     <motion.div
-      className="relative w-full h-[500px] bg-cover bg-center"
+      className="relative w-full h-[500px] bg-cover bg-secondWhite bg-center"
       style={{
         backgroundImage: `url('https://www.telepilote.store/themes/telepilote/assets/img/agriculture-drone.jpg')`,
       }}
@@ -30,13 +30,13 @@ const FirstAgriculture = () => {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 flex flex-col justify-center items-center h-full px-4 text-center text-white"
+        className="relative z-10 flex flex-col justify-center items-center h-full px-4 text-center  text-white"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <p style={{ color: "#48bdd2" }} className="font-semibold text-lg uppercase mb-2">
+        <p className="text-white shadow-black font-bold text-lg uppercase mb-2">
           AGRICULTURE DE PRÉCISION
         </p>
         <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
@@ -51,8 +51,8 @@ const FirstAgriculture = () => {
         {/* Buttons */}
         <div className="flex gap-4 flex-wrap justify-center">
           <button
-            style={{ backgroundColor: "#48bdd2" }}
-            className="relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
+           
+            className="bg-redOne relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
           >
             <span className="text-white pr-5"><Link to="/contact">Contact</Link></span>
             <span className="absolute inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-x-2">
@@ -71,10 +71,10 @@ const FirstAgriculture = () => {
           {/* Video Button */}
           <button
             onClick={openModal}
-            className="flex items-center gap-2 border-2 border-royalBlue hover:bg-royalBlue text-white py-2 px-6 rounded-full shadow-lg transition duration-300"
+            className="flex items-center gap-2 border-2 border-redOne hover:bg-redOne text-white py-2 px-6 rounded-full shadow-lg transition duration-300"
           >
             <span>Vidéo de Présentation</span>
-            <div className="bg-white text-blue-600 w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+            <div className="bg-white text-redTwo w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

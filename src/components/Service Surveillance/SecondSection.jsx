@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SecondSection = () => {
   return (
     <motion.section
-      className="bg-black text-white py-12 px-4"
+      className="bg-secondWhite text-black py-2 px-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -20,15 +20,14 @@ const SecondSection = () => {
         viewport={{ once: true }}
       >
         <p
-          style={{ color: "#48bdd2" }}
-          className="uppercase text-sm font-bold mb-4"
+          className="text-redOne uppercase text-xl font-bold mb-4"
         >
           Surveillance & Inspection industrielle
         </p>
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-white leading-tight">
+        <h1 className="text-black text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6  leading-tight">
           Inspection Aérienne : Une Technologie de Précision
         </h1>
-        <p className="text-gray-300 max-w-3xl">
+        <p className="text-gray-600 max-w-3xl">
           Le drone est un outil idéal pour inspecter et effectuer un diagnostic précis des structures de bâtiments, de biens immobiliers, ou encore d'ouvrages d'art. Grâce à la captation d’images en très haute définition et en vue aérienne, il permet une visualisation optimale des éléments de construction et de déceler les défauts ou fragilités des structures. En plus, l’inspection par drone assure une sécurité totale et un coût réduit, évitant l’utilisation de nacelles, échafaudages, etc.
         </p>
       </motion.div>
@@ -39,7 +38,7 @@ const SecondSection = () => {
           key={index}
           className={`flex flex-col ${
             index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-          } items-center gap-8 bg-neutral-900/50 shadow p-8 rounded-2xl mb-12 max-w-6xl mx-auto border-neutral-800`}
+          } items-center gap-8 bg-white shadow p-8 rounded-2xl mb-12 max-w-6xl mx-auto border-neutral-800`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.2 }}
@@ -54,7 +53,7 @@ const SecondSection = () => {
                 ? "INSPECTION D'ÉOLIENNES ET CHÂTEAUX D'EAU"
                 : "INSPECTIONS THERMIQUES ET SUIVI DE CHANTIER"}
             </h4>
-            <p className="text-gray-300 text-lg leading-relaxed mb-4">
+            <p className="text-gray-600 text-lg leading-relaxed mb-4">
               {index === 0
                 ? "Nos drones permettent une inspection précise des ouvrages d'art, facilitant la détection de fissures ou autres défauts structurels à distance, tout en garantissant la sécurité."
                 : index === 1
@@ -62,8 +61,7 @@ const SecondSection = () => {
                 : "Les inspections thermiques et les suivis de chantier sont rendus plus efficaces grâce aux drones, offrant des résultats précis pour une gestion optimale des projets de construction."}
             </p>
             <button
-              style={{ backgroundColor: "#48bdd2" }}
-              className="relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
+              className="bg-redOne relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all"
             >
               <span className="text-white pr-5"><Link to="/contact">Contact-nous</Link></span>
               <span className="absolute inset-y-0 right-4 flex items-center transition-transform duration-300 translate-x-0 group-hover:translate-x-2">

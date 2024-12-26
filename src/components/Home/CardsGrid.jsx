@@ -32,15 +32,14 @@ const CardsGrid = () => {
   ];
 
   return (
-    <section className="bg-black text-white p-10">
+    <section className="bg-white  text-black p-10">
       <div className="mt-16 ml-8 sm:ml-16 md:ml-[40px] lg:ml-[100px] xl:ml-[150px] w-[80%] mb-16">
         <p
-          style={{ color: "#48bdd2" }}
-          className="uppercase text-sm font-bold mb-4"
+          className="text-redOne uppercase text-xl font-bold mb-4"
         >
           DRONE LIGHT SHOW
         </p>
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-white leading-tight">
+        <h1 className="text-black  text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
           SPECTACLES DE DRONES : L'ART AU SERVICE DE L'ÉVÉNEMENTIEL
         </h1>
       </div>

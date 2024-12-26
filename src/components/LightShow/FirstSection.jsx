@@ -53,8 +53,7 @@ const FirstSection = () => {
 
         {/* Button Animation */}
         <motion.button
-          style={{ backgroundColor: "#48bdd2" }}
-          className="relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all ml-5"
+          className="bg-redOne relative px-6 py-3 text-white rounded-full group focus:outline-none focus:ring-4 transition-all ml-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
