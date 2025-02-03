@@ -91,8 +91,8 @@ const ThirdSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-xl font-bold mb-4 text-black">Gagnez en Précision et en Productivité avec nos Solutions par Drone</h3>
-        <p className="leading-relaxed text-black">
+        <h3 className="text-xl font-bold mb-4 text-white">Gagnez en Précision et en Productivité avec nos Solutions par Drone</h3>
+        <p className="leading-relaxed text-white">
         Avec l’utilisation de nos drones, nous vous permettons de réaliser des levés topographiques dans des
           zones difficiles d'accès, tout en obtenant des résultats d'une précision inégalée. Nos solutions
           sont adaptées à des secteurs variés, allant de l’agriculture à l’urbanisme et la construction.

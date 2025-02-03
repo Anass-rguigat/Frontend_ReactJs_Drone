@@ -90,8 +90,8 @@ const ThirdAgriculture = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-xl font-bold mb-4 text-black">Sécurité et Conformité</h3>
-        <p className="leading-relaxed text-black">
+        <h3 className="text-xl font-bold mb-4 text-white">Sécurité et Conformité</h3>
+        <p className="leading-relaxed text-white">
         Dans le cadre de l'agriculture de précision, la sécurité et la conformité sont essentielles pour garantir des opérations efficaces tout en minimisant les risques. Les drones utilisés dans nos services agricoles sont équipés de systèmes de sécurité avancés pour éviter tout incident pendant les vols. Nos opérateurs suivent des protocoles stricts pour assurer une gestion sans faille des drones, avec une surveillance en temps réel des conditions de vol et des capteurs de sécurité.
         </p>
       </motion.div>

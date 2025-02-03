@@ -43,7 +43,7 @@ const FirstSection = () => {
 
         {/* Description Animation */}
         <motion.p
-          className="text-lg text-gray-300 mb-8 w-[90%] md:w-[40%]"
+          className="text-lg text-gray-300 mb-8 w-[90%] md:w-[40%] text-justify"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}

@@ -89,8 +89,8 @@ const ThirdSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-xl font-bold mb-4 text-black">Prêt à Transformer Vos Projets avec la Cartographie par Drone ?</h3>
-        <p className="leading-relaxed text-black">
+        <h3 className="text-xl font-bold mb-4 text-white">Prêt à Transformer Vos Projets avec la Cartographie par Drone ?</h3>
+        <p className="leading-relaxed text-white">
         Contactez-nous dès aujourd'hui pour en savoir plus sur nos services de cartographie aérienne et découvrez comment notre technologie peut révolutionner vos processus.
         </p>
       </motion.div>

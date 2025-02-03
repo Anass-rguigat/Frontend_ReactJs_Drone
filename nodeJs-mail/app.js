@@ -12,42 +12,46 @@ app.use((req, res, next) => {
   next();
 });
 
-function sendEmail({ email, fullname, telephone ,message }) {
+function sendEmail({ fullname, email, telephone, message }) {
   return new Promise((resolve, reject) => {
-    var transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: "example@gmail.com",
-        pass: "111111111111",
+        pass: "password", 
       },
     });
 
     const mail_configs = {
       from: email,
-      to: "example@gmail.com",
-      subject: "Contact depuis web site DroneCast",
+      to: "example@gmail.com", 
+      subject: "Contact depuis le site web DroneCast",
       html: `
-      <h1>Message d'un client nom complete : ${fullname} <br/>le numero telephone : ${telephone}</h1>
-      <p>${message}</p>
-      <p>Best Regards</p>
+        <h1>Message de ${fullname}</h1>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Téléphone:</strong> ${telephone}</p>
+        <p><strong>Message:</strong> ${message}</p>
+        <p>Best Regards</p>
       `,
     };
+
     transporter.sendMail(mail_configs, function (error, info) {
       if (error) {
         console.log(error);
-        return reject({ message: `An error has occurred` });
+        return reject({ message: "An error has occurred" });
       }
       return resolve({ message: "Email sent successfully" });
     });
-  }); 
+  });
 }
 
-app.get("/", (req, res) => {
-  sendEmail(req.query)
+app.post("/send-email", (req, res) => {
+  const { fullname, email, telephone, message } = req.body;
+  sendEmail({ fullname, email, telephone, message })
     .then((response) => res.send(response.message))
     .catch((error) => res.status(500).send(error.message));
 });
 
 app.listen(port, () => {
-  console.log(`nodemailerProject is listening at http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });

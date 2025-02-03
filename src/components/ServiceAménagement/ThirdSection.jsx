@@ -91,8 +91,8 @@ const ThirdSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-xl font-bold mb-4 text-black">Sécurité et Conformité</h3>
-        <p className="leading-relaxed text-black">
+        <h3 className="text-xl font-bold mb-4 text-white">Sécurité et Conformité</h3>
+        <p className="leading-relaxed text-white">
           La sécurité est une priorité absolue dans l'utilisation des drones pour l'aménagement du territoire et l'évaluation des sinistres. Nous garantissons une coordination parfaite grâce à nos technologies avancées de synchronisation de drones. De plus, toutes nos missions sont menées en conformité avec les réglementations locales et nationales, en obtenant toutes les autorisations nécessaires et en assurant des zones de sécurité appropriées pour éviter tout risque.
         </p>
       </motion.div>

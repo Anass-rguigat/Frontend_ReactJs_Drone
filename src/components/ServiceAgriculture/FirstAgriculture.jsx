@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import img from '../../assets/pic1.jpg'
 const FirstAgriculture = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -18,7 +18,7 @@ const FirstAgriculture = () => {
     <motion.div
       className="relative w-full h-[500px] bg-cover bg-secondWhite bg-center"
       style={{
-        backgroundImage: `url('https://www.telepilote.store/themes/telepilote/assets/img/agriculture-drone.jpg')`,
+        backgroundImage: `url(${img})`,
       }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}

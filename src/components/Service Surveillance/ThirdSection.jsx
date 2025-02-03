@@ -89,8 +89,8 @@ const ThirdSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-xl font-bold mb-4 text-black">Sécurité et Conformité</h3>
-        <p className="leading-relaxed text-black">
+        <h3 className="text-xl font-bold mb-4 text-white">Sécurité et Conformité</h3>
+        <p className="leading-relaxed text-white">
           La sécurité est une priorité dans nos inspections industrielles. Nos drones sont équipés de technologies avancées pour garantir des opérations sécurisées. Nous nous assurons également de respecter toutes les normes réglementaires en matière d’aviation et de sécurité des infrastructures.
         </p>
       </motion.div>

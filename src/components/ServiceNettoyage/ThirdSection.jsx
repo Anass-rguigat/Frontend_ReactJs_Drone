@@ -91,8 +91,8 @@ const ThirdSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-xl font-bold mb-4 text-black">Sécurité et Conformité</h3>
-        <p className="leading-relaxed text-black">
+        <h3 className="text-xl font-bold mb-4 text-white">Sécurité et Conformité</h3>
+        <p className="leading-relaxed text-white">
           La sécurité est au cœur de nos préoccupations. Nous utilisons des
           technologies avancées de contrôle pour assurer une parfaite
           synchronisation des drones, minimisant ainsi tous risques. Nous nous

@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    telephone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({ fullname: "", email: "", telephone: "", message: "" }); 
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
   return (
-    <section className="bg-white w-full  text-gray-600 body-font relative flex items-center justify-center">
-      <div className="container px-5 py-24 mx-auto flex flex-col lg:flex-row">
+    <section className="bg-white w-full flex items-center justify-center">
+      <div className="w-full md:w-10/12 lg:w-10/12 px-5 py-24 mx-auto flex flex-col lg:flex-row">
         {/* Map Section */}
         <div className="lg:w-2/3 md:w-full rounded-lg overflow-hidden sm:mr-10 p-6 flex items-end justify-start relative">
           <iframe
@@ -38,44 +74,58 @@ const ContactSection = () => {
           <p className="leading-relaxed mb-5 text-gray-600">
             Nous sommes à votre écoute pour toute question ou demande concernant nos services. Que ce soit pour organiser un spectacle de drones, obtenir des informations sur nos prestations ou discuter d'un projet personnalisé, nous serons ravis de vous répondre.
           </p>
-          <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-sm text-gray-600">Nom Complet</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div className="relative mb-4">
-            <label htmlFor="telephone" className="leading-7 text-sm text-gray-600">Numéro de téléphone</label>
-            <input
-              type="number"
-              id="telephone"
-              name="telephone"
-              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div className="relative mb-4">
-            <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-            ></textarea>
-          </div>
-          <button className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
-            Submit
-          </button>
+          <form onSubmit={handleSubmit}>
+            <div className="relative mb-4">
+              <label htmlFor="name" className="leading-7 text-sm text-gray-600">Nom Complet</label>
+              <input
+                type="text"
+                id="name"
+                name="fullname"
+                value={formData.fullname}
+                onChange={handleChange}
+                className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                required
+              />
+            </div>
+            <div className="relative mb-4">
+              <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                required
+              />
+            </div>
+            <div className="relative mb-4">
+              <label htmlFor="telephone" className="leading-7 text-sm text-gray-600">Numéro de téléphone</label>
+              <input
+                type="number"
+                id="telephone"
+                name="telephone"
+                value={formData.telephone}
+                onChange={handleChange}
+                className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                required
+              />
+            </div>
+            <div className="relative mb-4">
+              <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" className="text-white bg-redOne border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </section>

@@ -10,8 +10,9 @@ const LightShow = () => {
     <FirstSection />
 
     <ThirdSection />
-    <SecondSection />
     <FourthSection />
+    <SecondSection />
+    
     <Footer />
     </>
   )

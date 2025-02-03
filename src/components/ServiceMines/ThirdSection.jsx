@@ -91,8 +91,8 @@ const ThirdSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-xl font-bold mb-4 text-black">Sécurité et Conformité</h3>
-        <p className="leading-relaxed text-black">
+        <h3 className="text-xl font-bold mb-4 text-white">Sécurité et Conformité</h3>
+        <p className="leading-relaxed text-white">
           La sécurité est primordiale dans l'organisation de nos spectacles de drones. Nous utilisons un contrôle intelligent pour assurer une synchronisation parfaite de tous les drones et minimiser les risques. Nos équipes s'occupent également des démarches administratives et des autorisations nécessaires pour garantir le respect des réglementations. Chaque spectacle se déroule dans une zone de sécurité dédiée.
         </p>
       </motion.div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import img from '../../assets/pic6.jpg'
 const FirstSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -18,7 +18,7 @@ const FirstSection = () => {
     <motion.div
       className="relative w-full h-[500px] bg-cover bg-center"
       style={{
-        backgroundImage: `url('https://www.studioflytechnologie.fr/wp-content/uploads/2013/06/Test-Ortho.jpg')`,
+        backgroundImage: `url(${img})`,
       }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}

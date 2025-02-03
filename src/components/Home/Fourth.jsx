@@ -67,7 +67,7 @@ const OurService = () => {
       <div className="mt-16 lg:mt-24 lg:ml-12 w-[80%] mb-16">
         
         <p className="text-redOne uppercase text-xl font-bold mb-4">
-          Service
+          Services
         </p>
         <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-6 text-black leading-tight">
           Services sur Mesure pour Réaliser Vos Ambitions
@@ -100,7 +100,7 @@ const OurService = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
               <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                 <h1 className="font-dmserif text-2xl font-bold text-white text-center mb-7">{item.title}</h1>
-                <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-center">
+                <p className="mb-10 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-center">
                   {item.subtitle}
                 </p>
                 <Link

@@ -1,35 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
+  const dropdownRef = useRef(null);
+  const mobileDropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileDropdownRef.current && !mobileDropdownRef.current.contains(event.target)) {
+        setMobileDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <header className="bg-black shadow-sm">
-      <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-        <img
-    src={logo} // Adjust the path based on your folder structure
-    alt="Drone Cast Logo"
-    className="w-16 h-16 object-contain" // Adjust width and height as needed
-  />
-          <span className="text-lg font-semibold text-gray-50">Drone Cast</span>
+          <img
+            src={logo} 
+            alt="Drone Cast Logo"
+            className="w-12 h-12 object-contain" 
+          />
+          <span className="text-md font-semibold text-gray-50">Drone Cast</span> 
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6 relative z-50">
-          <CustomLink to="/">HOME</CustomLink>
+          <CustomLink to="/">ACCUEIL</CustomLink>
           <CustomLink to="/Realisation">NOS RÉALISATIONS</CustomLink>
 
           {/* Dropdown */}
           <div
             className="relative group"
-            onClick={() => setDropdownOpen(!dropdownOpen)}
+            ref={dropdownRef}
+            onMouseEnter={() => setDropdownOpen(true)} 
+            onMouseLeave={() => setDropdownOpen(true)}
           >
-            <button className="text-sm font-medium text-gray-50 hover:text-redOne flex items-center relative ">
+            <button className="text-sm font-medium text-gray-50 hover:text-redOne flex items-center relative">
               NOS SERVICES
               <svg
                 className="ml-1 w-4 h-4"
@@ -42,13 +74,9 @@ const Header = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
               {/* Underline Animation */}
-              <span
-                className="absolute bottom-0 left-0 w-0 h-0.5 bg-redOne transition-all duration-300 group-hover:w-full "
-              />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-redOne transition-all duration-300 group-hover:w-full" />
             </button>
-            {dropdownOpen && (
-              <DropdownContent />
-            )}
+            {dropdownOpen && <DropdownContent />}
           </div>
           <CustomLink to="/light-show">SPECTACLE DE LUMIÈRE</CustomLink>
           <CustomLink to="/Aboutus">A PROPOS</CustomLink>
@@ -58,7 +86,7 @@ const Header = () => {
         {/* Desktop Social Media Icons */}
         <div className="hidden lg:flex space-x-4">
           <a
-            href="https://facebook.com"
+            href="https://web.facebook.com/dronecastcompany"
             className="text-gray-50 hover:text-blue-600"
             target="_blank"
             rel="noopener noreferrer"
@@ -66,7 +94,7 @@ const Header = () => {
             <i className="fab fa-facebook-f text-xl"></i>
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/dronecastcompany"
             className="text-gray-50 hover:text-pink-500"
             target="_blank"
             rel="noopener noreferrer"
@@ -74,7 +102,7 @@ const Header = () => {
             <i className="fab fa-instagram text-xl"></i>
           </a>
           <a
-            href="https://tiktok.com"
+            href="https://www.tiktok.com/@drone.cast.compan"
             className="text-gray-50 hover:text-red-600"
             target="_blank"
             rel="noopener noreferrer"
@@ -105,14 +133,14 @@ const Header = () => {
         <nav className="lg:hidden bg-white border-t border-gray-200 shadow-md">
           <ul className="flex flex-col space-y-2 p-4">
             <li>
-              <Link  className="text-gray-900 text-sm font-medium  hover:text-redOne relative group" to="/">HOME</Link>
+              <Link className="text-gray-900 text-sm font-medium hover:text-redOne relative group" to="/">HOME</Link>
             </li>
             <li>
-            <Link  className="text-gray-900 text-sm font-medium  hover:text-redOne relative group" to="/Realisation">NOS RÉALISATIONS</Link>
+              <Link className="text-gray-900 text-sm font-medium hover:text-redOne relative group" to="/Realisation">NOS RÉALISATIONS</Link>
             </li>
             <li>
               {/* Mobile Dropdown */}
-              <div>
+              <div ref={mobileDropdownRef}>
                 <button
                   className="text-sm font-medium text-gray-900 hover:text-redOne flex items-center relative group"
                   onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
@@ -129,25 +157,23 @@ const Header = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                   {/* Underline Animation */}
-                  <span
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-redOne transition-all duration-300 group-hover:w-full"
-                  />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-redOne transition-all duration-300 group-hover:w-full" />
                 </button>
                 {mobileDropdownOpen && (
-                  <div className="mt-2 bg-white border border-gray-200 shadow-lg rounded-md ">
+                  <div className="mt-2 bg-white border border-gray-200 shadow-lg rounded-md">
                     <DropdownContent />
                   </div>
                 )}
               </div>
             </li>
             <li>
-              <Link  className="text-gray-900 text-sm font-medium  hover:text-redOne relative group" to="/Aboutus">A PROPOS</Link>
+              <Link className="text-gray-900 text-sm font-medium hover:text-redOne relative group" to="/Aboutus">A PROPOS</Link>
             </li>
             <li>
-              <Link  className="text-gray-900 text-sm font-medium  hover:text-redOne relative group" to="/light-show">SPECTACLE DE LUMIÈRE</Link>
+              <Link className="text-gray-900 text-sm font-medium hover:text-redOne relative group" to="/light-show">SPECTACLE DE LUMIÈRE</Link>
             </li>
             <li>
-            <Link  className="text-gray-900 text-sm font-medium  hover:text-redOne relative group" to="/contact">CONTACT</Link>
+              <Link className="text-gray-900 text-sm font-medium hover:text-redOne relative group" to="/contact">CONTACT</Link>
             </li>
           </ul>
         </nav>
@@ -162,19 +188,17 @@ const CustomLink = ({ to, children }) => (
     className="text-sm font-medium text-white hover:text-redOne relative group"
   >
     {children}
-    <span
-      className="absolute bottom-0 left-0 w-0 h-0.5 bg-redOne transition-all duration-300 group-hover:w-full"
-    />
+    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-redOne transition-all duration-300 group-hover:w-full" />
   </Link>
 );
 
 const DropdownContent = () => (
-  <div className="absolute left-0  bg-white border border-gray-300 shadow-lg rounded-lg z-50 w-[300px] mt-2 overflow-hidden">
+  <div className="absolute left-0 bg-white border border-gray-300 shadow-lg rounded-lg z-50 w-[300px] mt-2 overflow-hidden">
     <ul className="space-y-1">
       <li className="group">
         <Link
           to="/Agriculture"
-          className="block px-4 py-2  text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
+          className="block px-4 py-2 text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
         >
           Agriculture de précision
         </Link>
@@ -182,7 +206,7 @@ const DropdownContent = () => (
       <li className="group">
         <Link
           to="/Topographique"
-          className="block px-4 py-2  text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
+          className="block px-4 py-2 text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
         >
           Levée Topographique par drone
         </Link>
@@ -190,7 +214,7 @@ const DropdownContent = () => (
       <li className="group">
         <Link
           to="/Cartographie"
-          className="block px-4 py-2  text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
+          className="block px-4 py-2 text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
         >
           Cartographie Aérienne par drone
         </Link>
@@ -198,7 +222,7 @@ const DropdownContent = () => (
       <li className="group">
         <Link
           to="/Surveillance"
-          className="block px-4 py-2  text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
+          className="block px-4 py-2 text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
         >
           Surveillance & Inspection industrielle
         </Link>
@@ -206,7 +230,7 @@ const DropdownContent = () => (
       <li className="group">
         <Link
           to="/Thermographie"
-          className="block px-4 py-2  text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
+          className="block px-4 py-2 text-sm font-medium text-gray-800 rounded-md transition-colors duration-200 ease-in-out hover:bg-redOne hover:text-white"
         >
           Thermographie par drone
         </Link>
@@ -238,9 +262,5 @@ const DropdownContent = () => (
     </ul>
   </div>
 );
-
-
-
-
 
 export default Header;
